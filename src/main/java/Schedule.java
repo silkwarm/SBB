@@ -6,6 +6,8 @@ import java.util.Date;
 @Table
 public class Schedule implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "seq_object")
+    @SequenceGenerator(name = "seq_object", sequenceName = "seq_object")
     private long id;
     @Column(name="ID_STATION", nullable = false)
     private long id_station;
