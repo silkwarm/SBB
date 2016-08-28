@@ -4,7 +4,7 @@ import java.util.Set;
 
 @Entity
 @Table
-public class Train implements Serializable {
+public class TrainPO implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "seq_object")
     @SequenceGenerator(name = "seq_object", sequenceName = "seq_object")
@@ -15,8 +15,8 @@ public class Train implements Serializable {
     private Integer sit_count;
     @ManyToMany
     @JoinTable(name = "SCHEDULE", joinColumns = @JoinColumn(name = "ID_TRAIN"), inverseJoinColumns = @JoinColumn(name = "ID_STATION"))
-    private Set<Station> stations;
+    private Set<StationPO> stations;
     @OneToMany
     @JoinColumn(name = "TRAIN_ID")
-    private Ticket ticket;
+    private TicketPO ticket;
 }

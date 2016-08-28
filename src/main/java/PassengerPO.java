@@ -4,7 +4,7 @@ import java.util.Date;
 
 @Entity
 @Table
-public class Passenger implements Serializable {
+public class PassengerPO implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "seq_object")
     @SequenceGenerator(name = "seq_object", sequenceName = "seq_object")
@@ -17,5 +17,5 @@ public class Passenger implements Serializable {
     private Date birthdate;
     @OneToOne
     @JoinColumn(name = "PASSENGER_ID")
-    private Ticket ticket;
+    private TicketPO ticket;
 }

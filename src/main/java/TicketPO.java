@@ -3,7 +3,7 @@ import java.io.Serializable;
 
 @Entity
 @Table
-public class Ticket implements Serializable {
+public class TicketPO implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "seq_object")
     @SequenceGenerator(name = "seq_object", sequenceName = "seq_object")
@@ -13,7 +13,7 @@ public class Ticket implements Serializable {
     @Column(name = "ID_PASSENGER")
     private long id_passenger;
     @OneToOne(optional=false, mappedBy="ticket")
-    private Passenger passenger;
+    private PassengerPO passenger;
     @OneToOne(optional=false, mappedBy="ticket")
-    private Train train;
+    private TrainPO train;
 }

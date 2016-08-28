@@ -4,7 +4,7 @@ import java.util.Date;
 
 @Entity
 @Table
-public class Schedule implements Serializable {
+public class SchedulePO implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "seq_object")
     @SequenceGenerator(name = "seq_object", sequenceName = "seq_object")
