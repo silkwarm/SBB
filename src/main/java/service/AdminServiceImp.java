@@ -1,5 +1,6 @@
 package service;
 
+import dao.PassengerDAO;
 import dao.StationDAO;
 import dao.TrainDAO;
 import persistence.PassengerPO;
@@ -31,7 +32,18 @@ public class AdminServiceImp implements AdminService{
     }
 
     public Set<PassengerPO> getPassengerListByTrainNumber(String trainNumber) {
-        return null;
+        PassengerDAO passengers = new PassengerDAO();
+        TrainDAO trains = new TrainDAO();
+        Set<PassengerPO> set = new HashSet<PassengerPO>();
+        TrainPO train = trains.getTrainByNumber(trainNumber);
+
+        try {
+            set = passengers.getPassangersByTrain(train);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return set;
     }
 
     public Set<TrainPO> getTrainrList() throws SQLException {
