@@ -10,7 +10,7 @@ public class TrainPO  extends AbstractPO  implements Serializable {
     @Column(name = "TRAIN_NUMBER")
     private String number;
     @Column (name = "SIT_COUNT")
-    private Integer sit_count;
+    private Integer sitCount;
 
     @ManyToOne
     @JoinTable(name = "T_SCHEDULE", joinColumns = @JoinColumn(name = "ID_STATION"), inverseJoinColumns = @JoinColumn(name = "ID_TRAIN"))
@@ -18,6 +18,9 @@ public class TrainPO  extends AbstractPO  implements Serializable {
 
     @OneToMany(mappedBy = "train", fetch = FetchType.LAZY)
     private Set<PassengerPO> passengers;
+
+    @OneToMany(mappedBy = "train", fetch = FetchType.LAZY)
+    private Set<TicketPO> tickets;
 
     public String getNumber() {
         return number;
@@ -27,12 +30,12 @@ public class TrainPO  extends AbstractPO  implements Serializable {
         this.number = number;
     }
 
-    public Integer getSit_count() {
-        return sit_count;
+    public Integer getSitCount() {
+        return sitCount;
     }
 
-    public void setSit_count(Integer sit_count) {
-        this.sit_count = sit_count;
+    public void setSitCount(Integer sit_count) {
+        this.sitCount = sit_count;
     }
 
     public StationPO getStation() {
@@ -50,5 +53,13 @@ public class TrainPO  extends AbstractPO  implements Serializable {
 
     public void setPassengers(Set<PassengerPO> passengers) {
         this.passengers = passengers;
+    }
+
+    public Set<TicketPO> getTickets() {
+        return tickets;
+    }
+
+    public void setTickets(Set<TicketPO> tickets) {
+        this.tickets = tickets;
     }
 }
