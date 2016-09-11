@@ -1,5 +1,6 @@
 package service;
 
+import dao.StationDAO;
 import dao.TrainDAO;
 import persistence.PassengerPO;
 import persistence.StationPO;
@@ -11,11 +12,22 @@ import java.util.Set;
 
 public class AdminServiceImp implements AdminService{
     public void addStation(StationPO station) {
+        StationDAO stations = new StationDAO();
+        try {
+            stations.add(station);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
     }
 
     public void addTrain(TrainPO train) {
-
+        TrainDAO trains = new TrainDAO();
+        try {
+            trains.add(train);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public Set<PassengerPO> getPassengerListByTrain(TrainPO train) {
