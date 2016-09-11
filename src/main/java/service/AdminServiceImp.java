@@ -11,18 +11,24 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class AdminServiceImp implements AdminService{
-    public void addStation(StationPO station) {
+    public void addStation(String stationName) {
+        StationPO station = new StationPO();
         StationDAO stations = new StationDAO();
+
+        station.setName(stationName);
         try {
             stations.add(station);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
 
-    public void addTrain(TrainPO train) {
+    public void addTrain(String trainNumber, int sitCount) {
+        TrainPO train = new TrainPO();
         TrainDAO trains = new TrainDAO();
+
+        train.setNumber(trainNumber);
+        train.setSitCount(sitCount);
         try {
             trains.add(train);
         } catch (SQLException e) {

@@ -30,7 +30,7 @@ public class UserServiceImp implements UserService {
     public boolean buyTicket(PassengerPO passeneger, TrainPO train, Date date) {
         TicketPO ticket = new TicketPO();
         TicketDAO ticketD = new TicketDAO();
-        // date!!!!
+        // add date!!!!
         if ((getFreeSits(train) > 0) && !isPassengerRegisteredOnTrain(train, passeneger)) {
             ticket.setPassenger(passeneger);
             ticket.setTrain(train);
@@ -38,6 +38,7 @@ public class UserServiceImp implements UserService {
                 ticketD.add(ticket);
             } catch (SQLException e) {
                 e.printStackTrace();
+                return false;
             }
         }
         return true;
