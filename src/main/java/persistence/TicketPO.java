@@ -5,11 +5,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "T_TICKET")
-public class TicketPO implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "seq_object")
-    @SequenceGenerator(name = "seq_object", sequenceName = "seq_object")
-    private long id;
+public class TicketPO extends AbstractPO implements Serializable {
     @Column(name = "ID_TRAIN")
     private long id_train;
     @Column(name = "ID_PASSENGER")
