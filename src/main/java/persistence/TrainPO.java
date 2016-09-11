@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.Set;
 
 @Entity
-@Table
+@Table(name = "T_TRAIN")
 public class TrainPO implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "seq_object")
@@ -21,4 +21,8 @@ public class TrainPO implements Serializable {
     @OneToMany
     @JoinColumn(name = "TRAIN_ID")
     private TicketPO ticket;
+
+    public long getId() {
+        return this.id;
+    }
 }

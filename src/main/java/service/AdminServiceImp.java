@@ -30,7 +30,7 @@ public class AdminServiceImp implements AdminService{
         }
     }
 
-    public Set<PassengerPO> getPassengerListByTrain(TrainPO train) {
+    public Set<PassengerPO> getPassengerListByTrainNumber(String trainNumber) {
         return null;
     }
 

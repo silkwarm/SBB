@@ -11,6 +11,6 @@ public interface AdminService {
     void addStation(StationPO station);
     void addTrain(TrainPO train);
 
-    Set<PassengerPO> getPassengerListByTrain(TrainPO train);
+    Set<PassengerPO> getPassengerListByTrainNumber(String trainNumber);
     Set<TrainPO> getTrainrList() throws SQLException;
 }
