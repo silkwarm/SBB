@@ -6,23 +6,49 @@ import java.util.Set;
 
 @Entity
 @Table(name = "T_TRAIN")
-public class TrainPO implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "seq_object")
-    @SequenceGenerator(name = "seq_object", sequenceName = "seq_object")
-    private long id;
-    @Column(name = "NUMBER")
+public class TrainPO  extends AbstractPO  implements Serializable {
+    @Column(name = "TRAIN_NUMBER")
     private String number;
     @Column (name = "SIT_COUNT")
     private Integer sit_count;
-    @ManyToMany
-    @JoinTable(name = "SCHEDULE", joinColumns = @JoinColumn(name = "ID_TRAIN"), inverseJoinColumns = @JoinColumn(name = "ID_STATION"))
-    private Set<StationPO> stations;
-    @OneToMany
-    @JoinColumn(name = "TRAIN_ID")
-    private TicketPO ticket;
 
-    public long getId() {
-        return this.id;
+    @ManyToOne
+    @JoinTable(name = "T_SCHEDULE", joinColumns = @JoinColumn(name = "ID_STATION"), inverseJoinColumns = @JoinColumn(name = "ID_TRAIN"))
+    private StationPO station;
+
+    @OneToMany(mappedBy = "train", fetch = FetchType.LAZY)
+    private Set<PassengerPO> passengers;
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public Integer getSit_count() {
+        return sit_count;
+    }
+
+    public void setSit_count(Integer sit_count) {
+        this.sit_count = sit_count;
+    }
+
+    public StationPO getStation() {
+        return station;
+    }
+
+    public void setStation(StationPO station) {
+        this.station = station;
+    }
+
+
+    public Set<PassengerPO> getPassengers() {
+        return passengers;
+    }
+
+    public void setPassengers(Set<PassengerPO> passengers) {
+        this.passengers = passengers;
     }
 }

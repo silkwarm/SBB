@@ -6,15 +6,14 @@ import java.util.Date;
 
 @Entity
 @Table(name = "T_SCHEDULE")
-public class SchedulePO implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "seq_object")
-    @SequenceGenerator(name = "seq_object", sequenceName = "seq_object")
-    private long id;
-    @Column(name="ID_STATION", nullable = false)
-    private long id_station;
-    @Column(name="ID_TRAIN", nullable = false)
-    private long id_train;
+public class SchedulePO  extends AbstractPO  implements Serializable {
     @Column(name="TIME")
     private Date time;
+
+    public Date getTime() {
+        return time;
+    }
+    public void setTime(Date time) {
+        this.time = time;
+    }
 }

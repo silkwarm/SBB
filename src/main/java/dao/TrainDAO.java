@@ -16,7 +16,7 @@ public class TrainDAO extends AbstractDAO<TrainPO> {
         try {
             Query query = session.createQuery("select tr"
                     + "  from T_TRAIN tr"
-                    + " where tr.number = :train_number")
+                    + " where tr.train_number = :train_number")
                     .setString("train_number", trainNumber);
 
             train = (TrainPO) query.list();

@@ -11,6 +11,14 @@ public class UserPO extends AbstractPO implements Serializable {
     @Column(name = "PASSWORD", unique = true, nullable = false)
     private String password;
 
+    public String getLogin() {
+        return login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
     public void setLogin (String login) {
         this.login = login;
     }
