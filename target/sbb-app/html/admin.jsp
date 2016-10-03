@@ -14,7 +14,7 @@
   <input type="submit"  value="Add station">
 </form>
 <form method="POST" action="GetPassengers">
-  <p><input type="text" name="trainNumber" value="" placeholder="train number"></p>
+  <p><input type="text" name="stationName" value="" placeholder="station name"></p>
   <input type="submit"  value="Show passengers">
 </form>
 <form method="POST" action="GetTrains">

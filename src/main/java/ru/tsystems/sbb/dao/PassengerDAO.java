@@ -12,7 +12,7 @@ public class PassengerDAO extends AbstractDAO<PassengerPO> {
 
         try {
             Query query = session.createQuery("select p"
-                    + "  from T_PASSENGER p"
+                    + "  from PassengerPO p"
                     + " where p.name = :name and p.surname = :surname")
                     .setString("name", passengerName)
                     .setString("surname", passengerSurname);

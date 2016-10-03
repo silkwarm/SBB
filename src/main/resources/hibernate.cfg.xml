@@ -10,9 +10,11 @@
         <property name="hibernate.connection.password">silkwarm</property>
         <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
         <property name="show_sql">true</property>
-        <mapping class="persistence.UserPO"/>
-        <mapping class="persistence.TicketPO"/>
-        <mapping class="persistence.TrainPO"/>
-        <mapping class="persistence.PassengerPO"/>
+        <mapping class="ru.tsystems.sbb.persistence.UserPO"/>
+        <mapping class="ru.tsystems.sbb.persistence.TicketPO"/>
+        <mapping class="ru.tsystems.sbb.persistence.TrainPO"/>
+        <mapping class="ru.tsystems.sbb.persistence.PassengerPO"/>
+        <mapping class="ru.tsystems.sbb.persistence.SchedulePO"/>
+        <mapping class="ru.tsystems.sbb.persistence.StationPO"/>
     </session-factory>
 </hibernate-configuration>

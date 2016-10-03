@@ -4,6 +4,7 @@ import ru.tsystems.sbb.persistence.PassengerPO;
 import ru.tsystems.sbb.persistence.TrainPO;
 
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Set;
 
 public interface AdminService {
@@ -11,5 +12,5 @@ public interface AdminService {
     void addTrain(String trainNumber, int sitCount);
 
     Set<PassengerPO> getPassengerListByTrainNumber(String trainNumber);
-    Set<TrainPO> getTrainrList() throws SQLException;
+    List<TrainPO> getTrainList() throws SQLException;
 }

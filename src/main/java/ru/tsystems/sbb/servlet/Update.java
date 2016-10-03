@@ -12,6 +12,7 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 
 public class Update extends HttpServlet {
+    @Override
     public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         PrintWriter out = res.getWriter();
         UserPO user = new UserPO();
@@ -19,6 +20,7 @@ public class Update extends HttpServlet {
         user.setId(3);
         user.setLogin(req.getParameter("login"));
         user.setPassword(req.getParameter("password"));
+        out.println("update");
         try {
             userD.update(user);
         } catch (SQLException e) {

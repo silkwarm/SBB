@@ -5,8 +5,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 import java.sql.SQLException;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class AbstractDAO<E> {
     SessionFactory sessions = new Configuration().configure().buildSessionFactory();
@@ -41,11 +41,11 @@ public abstract class AbstractDAO<E> {
         }
     }
 
-    public Set<E> getAll(E object) throws SQLException {
+    public List<E> getAll(E object) throws SQLException {
         Session session = sessions.openSession();
-        Set<E> set = new HashSet<E>();
+        List<E> list = new ArrayList<E>();
         try {
-            set = (Set<E>) session.createCriteria(object.getClass()).list();
+            list = session.createCriteria(object.getClass()).list();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -53,7 +53,7 @@ public abstract class AbstractDAO<E> {
                 session.close();
             }
         }
-        return set;
+        return list;
     }
 
     public void delete(E object) throws SQLException {

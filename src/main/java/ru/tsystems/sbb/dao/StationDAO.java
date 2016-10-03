@@ -12,7 +12,7 @@ public class StationDAO extends AbstractDAO<StationPO> {
 
         try {
             Query query = session.createQuery("select st"
-                    + "  from T_STATION st"
+                    + "  from StationPO st"
                     + " where st.name = :station_name")
                     .setString("station_name", stationName);
 

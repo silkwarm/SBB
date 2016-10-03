@@ -15,7 +15,7 @@ public class ScheduleDAO extends AbstractDAO<SchedulePO> {
 
         try {
             Query query = session.createQuery("select s"
-                    + "  from T_SCHEDULE s"
+                    + "  from SchedulePO s"
                     + " where s.id_train = :id_train and s.id_station = :id_station")
                     .setLong("id_train", station.getId())
                     .setLong("id_station", train.getId());

@@ -3,11 +3,10 @@ package ru.tsystems.sbb.persistence;
 import javax.persistence.*;
 
 @MappedSuperclass
-@Entity
 public abstract class AbstractPO {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "seq_object")
-    @SequenceGenerator(name = "seq_object", sequenceName = "seq_object")
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "seq_pk")
+    @SequenceGenerator(name = "seq_pk", sequenceName = "seq_pk")
     protected long id;
 
     public long getId() {
