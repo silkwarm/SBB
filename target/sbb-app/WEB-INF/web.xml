@@ -1,29 +1,77 @@
 <!DOCTYPE html>
 
 <web-app>
+  <context-param>
+    <param-name>javax.servlet.jsp.jstl.fmt.request.charset</param-name>
+    <param-value>UTF-8</param-value>
+  </context-param>
   <display-name>SBB Project</display-name>
   <servlet>
     <servlet-name>Login</servlet-name>
-    <servlet-class>Login</servlet-class>
+    <servlet-class>ru.tsystems.sbb.servlet.Login</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>Register</servlet-name>
-    <servlet-class>Register</servlet-class>
+    <servlet-class>ru.tsystems.sbb.servlet.Register</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>Update</servlet-name>
-    <servlet-class>Update</servlet-class>
+    <servlet-class>ru.tsystems.sbb.servlet.Update</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>AddTrain</servlet-name>
+    <servlet-class>ru.tsystems.sbb.servlet.AddTrain</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AddStation</servlet-name>
+    <servlet-class>ru.tsystems.sbb.servlet.AddStation</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>GetPassengers</servlet-name>
+    <servlet-class>ru.tsystems.sbb.servlet.GetPassengers</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>GetTrains</servlet-name>
+    <servlet-class>ru.tsystems.sbb.servlet.GetTrains</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>GetTrainsByStation</servlet-name>
+    <servlet-class>ru.tsystems.sbb.servlet.GetTrainsByStation</servlet-class>
+  </servlet>
+
   <servlet-mapping>
     <servlet-name>Login</servlet-name>
     <url-pattern>/Login</url-pattern>
-
+  </servlet-mapping>
+  <servlet-mapping>
     <servlet-name>Register</servlet-name>
-    <url-pattern>/Register</url-pattern>
-
+    <url-pattern>/html/Register</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
     <servlet-name>Update</servlet-name>
     <url-pattern>/Update</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddTrain</servlet-name>
+    <url-pattern>/AddTrain</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddStation</servlet-name>
+    <url-pattern>/AddStation</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GetPassengers</servlet-name>
+    <url-pattern>/GetPassengers</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GetTrains</servlet-name>
+    <url-pattern>/GetTrains</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GetTrainsByStation</servlet-name>
+    <url-pattern>/GetTrainsByStation</url-pattern>
+  </servlet-mapping>
+
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
