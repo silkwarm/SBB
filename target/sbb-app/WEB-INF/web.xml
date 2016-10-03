@@ -34,6 +34,11 @@
     <servlet-name>GetTrains</servlet-name>
     <servlet-class>ru.tsystems.sbb.servlet.GetTrains</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>GetTrainsByStation</servlet-name>
+    <servlet-class>ru.tsystems.sbb.servlet.GetTrainsByStation</servlet-class>
+  </servlet>
+
   <servlet-mapping>
     <servlet-name>Login</servlet-name>
     <url-pattern>/Login</url-pattern>
@@ -61,6 +66,10 @@
   <servlet-mapping>
     <servlet-name>GetTrains</servlet-name>
     <url-pattern>/GetTrains</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GetTrainsByStation</servlet-name>
+    <url-pattern>/GetTrainsByStation</url-pattern>
   </servlet-mapping>
 
   <welcome-file-list>

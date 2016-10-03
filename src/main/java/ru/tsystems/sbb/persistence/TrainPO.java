@@ -2,6 +2,7 @@ package ru.tsystems.sbb.persistence;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -16,10 +17,10 @@ public class TrainPO  extends AbstractPO  implements Serializable {
     @JoinTable(name = "T_SCHEDULE", joinColumns = @JoinColumn(name = "ID_STATION"), inverseJoinColumns = @JoinColumn(name = "ID_TRAIN"))
     private StationPO station;
 
-    @OneToMany(mappedBy = "train", fetch = FetchType.LAZY)
-    private Set<PassengerPO> passengers;
+    @OneToMany(mappedBy = "train")
+    private List<PassengerPO> passengers;
 
-    @OneToMany(mappedBy = "train", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "train")
     private Set<TicketPO> tickets;
 
     public String getNumber() {
@@ -47,11 +48,11 @@ public class TrainPO  extends AbstractPO  implements Serializable {
     }
 
 
-    public Set<PassengerPO> getPassengers() {
+    public List<PassengerPO> getPassengers() {
         return passengers;
     }
 
-    public void setPassengers(Set<PassengerPO> passengers) {
+    public void setPassengers(List<PassengerPO> passengers) {
         this.passengers = passengers;
     }
 

@@ -8,7 +8,7 @@
 <form method="POST" action="Login">
     <p><input type="text" name="login" value="" placeholder="Username or Email"></p>
     <p><input type="password" name="password" value="" placeholder="Password"></p>
-    <input type="submit">
+    <input type="submit" value="login">
 </form>
 <a href="html/register.html">Register</a>
 </body>

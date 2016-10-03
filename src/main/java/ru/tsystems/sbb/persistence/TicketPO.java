@@ -8,7 +8,8 @@ import java.io.Serializable;
 public class TicketPO extends AbstractPO implements Serializable {
 
 
-    @OneToOne(mappedBy = "ticket")
+    @OneToOne
+    @JoinColumn(name = "ID_PASSENGER")
     PassengerPO passenger;
 
     @ManyToOne

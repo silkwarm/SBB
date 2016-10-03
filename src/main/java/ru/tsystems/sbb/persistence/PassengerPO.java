@@ -19,8 +19,8 @@ public class PassengerPO  extends AbstractPO  implements Serializable {
     @JoinTable(name = "T_TICKET", joinColumns = @JoinColumn(name = "ID_PASSENGER"),inverseJoinColumns = @JoinColumn(name = "ID_TRAIN"))
     private TrainPO train;
 
-    @OneToOne
-    @JoinColumn(name = "ID_PASSENGER")
+    @OneToOne(mappedBy = "passenger")
+   // @JoinColumn(name = "ID_PASSENGER")
     private TicketPO ticket;
 
     public String getName() {

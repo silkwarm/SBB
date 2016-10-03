@@ -37,9 +37,8 @@ public class AdminServiceImp implements AdminService{
         }
     }
 
-    public Set<PassengerPO> getPassengerListByTrainNumber(String trainNumber) {
-        TrainPO train = trainDAO.getTrainByNumber(trainNumber);
-        return train.getPassengers();
+    public List<PassengerPO> getPassengerListByTrainNumber(String trainNumber) {
+        return trainDAO.getPassengersByTrain(trainNumber);
     }
 
     public List<TrainPO> getTrainList() throws SQLException {

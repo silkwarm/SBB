@@ -9,6 +9,7 @@ import ru.tsystems.sbb.persistence.TrainPO;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 public class UserServiceImp implements UserService {
@@ -25,12 +26,12 @@ public class UserServiceImp implements UserService {
         return train.getPassengers().contains(passenger);
     }
 
-    public Set<TrainPO> getTrainByStationsAndTime(String stationNameA, String stationNameB, Date startTime, Date endTime) {
+    public List<TrainPO> getTrainByStationsAndTime(String stationNameA, String stationNameB, Date startTime, Date endTime) {
         StationPO stationA = stationDAO.getStationByName(stationNameA);
         StationPO stationB = stationDAO.getStationByName(stationNameB);
-        Set<TrainPO> trainsA = stationA.getTrains();
-        Set<TrainPO> trainsB = stationB.getTrains();
-        Set<TrainPO> trains = null;
+        List<TrainPO> trainsA = stationA.getTrains();
+        List<TrainPO> trainsB = stationB.getTrains();
+        List<TrainPO> trains = null;
 
         for (TrainPO train : trainsA) {
             // && schedule.getTimeByStationAndTrain(stationA, train)
@@ -43,10 +44,8 @@ public class UserServiceImp implements UserService {
         return trains;
     }
 
-    public Set<TrainPO> getTrainsByStation(String stationName) {
-        StationPO station = stationDAO.getStationByName(stationName);
-
-        return station.getTrains();
+    public List<TrainPO> getTrainsByStation(String stationName) {
+        return stationDAO.getTrainsByStation(stationName);
     }
 
     public boolean buyTicket(String passengerName, String passengerSurname, String trainNumber, Date date) {
